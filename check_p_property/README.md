@@ -20,6 +20,7 @@ The work presented on check_p_property.ipynb illustrates the phase transition fo
 This investigation is useful in theoretical ecology especially. To investigate the phase transition, we check the P-property of the matrix $I - \frac{X_N}{\alpha \sqrt{N}}$ for 15 values of $\alpha$ spread around the theoretical value of the phase change. 
 - We use $\alpha \in$ `np.linspace(0.001,2,15)` for non-hermitian matrix for which the phenomenon of behavior change is supposed to occur at $\alpha = 1$. 
 - We use $\alpha \in$ `np.linspace(1,3,15)` for hermitian matrix for which the phenomenon of behavior change is supposed to occur at $\alpha = 2$.
+
 We then produce a Montecarlo estimate (for each value of $\alpha$) of the probability of being a P-matrix or not based on 50 computations. The value $\frac{1}{\alpha}$ is called *interaction strength*.
 
 The algorithm is supposed to run in polynomial time $\mathcal O (N^3)$, for e.g. on:
@@ -71,7 +72,7 @@ Finds REGularity SUFFicient CONDition via matrices QZ based on [Theorem 4.3](htt
 
 - ***singularity via the main algorithm***: 
 
-[Loop on $\{ \pm 1 \}^n$ to find the singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in \{ \pm 1 \}^n$ such that:
+Loop on $\{ \pm 1 \}^n$ to [find the singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in \{ \pm 1 \}^n$ such that:
 
 $(A_c - d D_y \Delta D_z) \cdot x = 0$
 
@@ -108,7 +109,7 @@ Finds REGularity SUFFicient CONDition via matrices QZ based on [Theorem 4.3](htt
 
 - ***regularity  via the main algorithm*** (too expansive): 
 
-[Loop on $\{ \pm 1 \}^n$ did not find any singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in \{ \pm 1 \}^n$ such that:
+Loop on $\{ \pm 1 \}^n$ [did not find any singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in \{ \pm 1 \}^n$ such that:
 
 $(A_c - d D_y \Delta D_z) \cdot x = 0$
 
