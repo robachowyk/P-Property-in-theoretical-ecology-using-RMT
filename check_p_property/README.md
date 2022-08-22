@@ -68,11 +68,11 @@ Finds SINGularity via DETerminant DESCent ???
 
 - ***singularity as a by-product of Qz-matrices***: 
 
-Finds REGularity SUFFicient CONDition via matrices QZ based on [Theorem 4.3](https://doi.org/10.1137/S0895479896313978) $[A_c \pm \Delta]$ is singular $\iff$ the linear programming problem $(\star)$ is unbounded for some $z \in \{ \pm 1 \}^n$. The algorithm is looking for bounded or unbounded solutions of $(\star) = \max \{z^T \cdot x ; (A_c - \Delta D_z) \cdot x \leq 0, (A_c + \Delta D_z) \cdot x \geq 0, D_z \cdot x \geq 0\}$
+Finds REGularity SUFFicient CONDition via matrices QZ based on [Theorem 4.3](https://doi.org/10.1137/S0895479896313978) $[A_c \pm \Delta]$ is singular $\iff$ the linear programming problem $(\star)$ is unbounded for some $z \in \\{ \pm 1 \\}^n$. The algorithm is looking for bounded or unbounded solutions of $(\star) = \max \\{z^T \cdot x ; (A_c - \Delta D_z) \cdot x \leq 0, (A_c + \Delta D_z) \cdot x \geq 0, D_z \cdot x \geq 0\\}$
 
 - ***singularity via the main algorithm***: 
 
-Loop on $\{ \pm 1 \}^n$ to [find the singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in \{ \pm 1 \}^n$ such that:
+Loop on $\\{ \pm 1 \\}^n$ to [find the singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in \\{ \pm 1 \\}^n$ such that:
 
 $(A_c - d D_y \Delta D_z) \cdot x = 0$
 
@@ -84,7 +84,7 @@ $D_y \cdot x' \geq 0$
 
 where $d = d(A_c, \Delta) \in [0,1]$
 
-$d(A_c, \Delta) = \min \{\delta \geq 0; [A_c \pm \delta \Delta] \text{ is singular}\} = \frac{1}{\underset{y, z \in \{\pm 1\}^n}{\max} \rho^{\mathbb{R}} \left[ {A_c}^{-1} D_y \Delta D_z \right]}$.
+$d(A_c, \Delta) = \min \\{ \delta \geq 0; [A_c \pm \delta \Delta] \text{ is singular} \\} = \frac{1}{\underset{y, z \in \\{\pm 1\\}^n}{\max} \rho^{\mathbb{R}} \left[ {A_c}^{-1} D_y \Delta D_z \right]}$.
 
 - ***regularity  via Beeck's condition***: 
 
@@ -105,11 +105,11 @@ $\Delta^T \Delta - {A_c}^T A_c$ positive definite $\implies [A_C \pm \Delta]$ is
 
 - ***regularity via two Qz-matrices***: 
 
-Finds REGularity SUFFicient CONDition via matrices QZ based on [Theorem 4.3](https://doi.org/10.1137/S0895479896313978) $[A_c \pm \Delta]$ is regular $\iff$ the linear programming problem $(\star)$ is bounded for all $z \in \{ \pm 1 \}^n$. The algorithm is looking for bounded or unbounded solutions of $(\star) = \max \{z^T \cdot x ; (A_c - \Delta D_z) \cdot x \leq 0, (A_c + \Delta D_z) \cdot x \geq 0, D_z \cdot x \geq 0\}$
+Finds REGularity SUFFicient CONDition via matrices QZ based on [Theorem 4.3](https://doi.org/10.1137/S0895479896313978) $[A_c \pm \Delta]$ is regular $\iff$ the linear programming problem $(\star)$ is bounded for all $z \in \\{ \pm 1 \\}^n$. The algorithm is looking for bounded or unbounded solutions of $(\star) = \max \\{z^T \cdot x ; (A_c - \Delta D_z) \cdot x \leq 0, (A_c + \Delta D_z) \cdot x \geq 0, D_z \cdot x \geq 0\\}$
 
 - ***regularity  via the main algorithm*** (too expansive): 
 
-Loop on $\{ \pm 1 \}^n$ [did not find any singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in \{ \pm 1 \}^n$ such that:
+Loop on $\\{ \pm 1 \\}^n$ [did not find any singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in \\{ \pm 1 \\}^n$ such that:
 
 $(A_c - d D_y \Delta D_z) \cdot x = 0$
 
@@ -121,9 +121,9 @@ $D_y \cdot x' \geq 0$
 
 where $d = d(A_c, \Delta) \in [0,1]$
 
-$d(A_c, \Delta) = \min \{\delta \geq 0; [A_c \pm \delta \Delta] \text{ is singular}\} = \frac{1}{\underset{y, z \in \{\pm 1\}^n}{\max} \rho^{\mathbb{R}} \left[ {A_c}^{-1} D_y \Delta D_z \right]}$.
+$d(A_c, \Delta) = \min \\{ \delta \geq 0; [A_c \pm \delta \Delta] \text{ is singular} \\} = \frac{1}{\underset{y, z \in \\{\pm 1\\}^n}{\max} \rho^{\mathbb{R}} \left[ {A_c}^{-1} D_y \Delta D_z \right]}$.
 
 ## 2 kinds of warnings might print
 
-- Jiri Rohn uses his own code to answer the optimization problem: Max $c^T \cdot x$ subject to $A \cdot x \leq b$ - which is needed during the process of checking regularity or singularity of the interval matrix of interest ($\star$) - while we use `scipy.optimize.linprog(-c, A_ub=A, b_ub=b, method="simplex").x` which solves: Min $-c^T \cdot x$ subject to $A \cdot x \leq b$. However the "simplex" method in `scipy.optimize.linprog` may not converge, raising a ValueError in `regsuffcondqz`.
+- Jiri Rohn uses his own code to answer the optimization problem: Max $c^T \cdot x$ subject to $A \cdot x \leq b$ - which is needed during the process of checking regularity or singularity of the interval matrix of interest ($\star$) - while we use `scipy.optimize.linprog(-c, A_ub=A, b_ub=b, method="simplex").x` which solves: $\min -c^T \cdot x$ subject to $A \cdot x \leq b$. However the "simplex" method in `scipy.optimize.linprog` may not converge, raising a ValueError in `regsuffcondqz`.
 - REGularIty/SINGularity of interval matrix program may be stopped after reaching prescribed number of iterations, raising a RuntimeError in `regising`.
