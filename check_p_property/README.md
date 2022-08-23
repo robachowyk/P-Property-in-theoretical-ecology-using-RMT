@@ -68,11 +68,11 @@ Finds SINGularity via DETerminant DESCent ???
 
 - ***singularity as a by-product of Qz-matrices***: 
 
-Finds REGularity SUFFicient CONDition via matrices QZ based on [Theorem 4.3](https://doi.org/10.1137/S0895479896313978) $[A_c \pm \Delta]$ is singular $\iff$ the linear programming problem $(\star)$ is unbounded for some $z \in \\{ \pm 1 \\}^n$. The algorithm is looking for bounded or unbounded solutions of $(\star) = \max \\{z^T \cdot x ; (A_c - \Delta D_z) \cdot x \leq 0, (A_c + \Delta D_z) \cdot x \geq 0, D_z \cdot x \geq 0\\}$
+Finds REGularity SUFFicient CONDition via matrices QZ based on [Theorem 4.3](https://doi.org/10.1137/S0895479896313978) $[A_c \pm \Delta]$ is singular $\iff$ the linear programming problem $(\star)$ is unbounded for some $z \in {\lbrace \pm 1 \rbrace}^n$. The algorithm is looking for bounded or unbounded solutions of $(\star) = \max \lbrace z^T \cdot x ; (A_c - \Delta D_z) \cdot x \leq 0, (A_c + \Delta D_z) \cdot x \geq 0, D_z \cdot x \geq 0 \rbrace$
 
 - ***singularity via the main algorithm***: 
 
-Loop on $\\{ \pm 1 \\}^n$ to [find the singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in \\{ \pm 1 \\}^n$ such that:
+Loop on ${ \lbrace \pm 1 \rbrace }^n$ to [find the singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in { \lbrace \pm 1 \rbrace }^n$ such that:
 
 $(A_c - d D_y \Delta D_z) \cdot x = 0$
 
@@ -84,7 +84,7 @@ $D_y \cdot x' \geq 0$
 
 where $d = d(A_c, \Delta) \in [0,1]$
 
-$d(A_c, \Delta) = \min \\{ \delta \geq 0; [A_c \pm \delta \Delta] \text{ is singular} \\} = \frac{1}{\underset{y, z \in \\{\pm 1\\}^n}{\max} \rho^{\mathbb{R}} \left[ {A_c}^{-1} D_y \Delta D_z \right]}$.
+$d(A_c, \Delta) = \min \lbrace \delta \geq 0; [A_c \pm \delta \Delta] \text{ is singular} \rbrace = \frac{1}{\underset{y, z \in { \lbrace \pm 1 \rbrace }^n}{\max} \rho^{\mathbb{R}} \left[ {A_c}^{-1} D_y \Delta D_z \right]}$.
 
 - ***regularity  via Beeck's condition***: 
 
@@ -105,11 +105,11 @@ $\Delta^T \Delta - {A_c}^T A_c$ positive definite $\implies [A_C \pm \Delta]$ is
 
 - ***regularity via two Qz-matrices***: 
 
-Finds REGularity SUFFicient CONDition via matrices QZ based on [Theorem 4.3](https://doi.org/10.1137/S0895479896313978) $[A_c \pm \Delta]$ is regular $\iff$ the linear programming problem $(\star)$ is bounded for all $z \in \\{ \pm 1 \\}^n$. The algorithm is looking for bounded or unbounded solutions of $(\star) = \max \\{z^T \cdot x ; (A_c - \Delta D_z) \cdot x \leq 0, (A_c + \Delta D_z) \cdot x \geq 0, D_z \cdot x \geq 0\\}$
+Finds REGularity SUFFicient CONDition via matrices QZ based on [Theorem 4.3](https://doi.org/10.1137/S0895479896313978) $[A_c \pm \Delta]$ is regular $\iff$ the linear programming problem $(\star)$ is bounded for all $z \in { \lbrace \pm 1 \rbrace }^n$. The algorithm is looking for bounded or unbounded solutions of $(\star) = \max \lbrace z^T \cdot x ; (A_c - \Delta D_z) \cdot x \leq 0, (A_c + \Delta D_z) \cdot x \geq 0, D_z \cdot x \geq 0 \rbrace$
 
 - ***regularity  via the main algorithm*** (too expansive): 
 
-Loop on $\\{ \pm 1 \\}^n$ [did not find any singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in \\{ \pm 1 \\}^n$ such that:
+Loop on ${ \lbrace \pm 1 \rbrace }^n$ [did not find any singular matrix](https://doi.org/10.1137/0614007) If $[A_c \pm \Delta]$ is singular, there exists $x, x' \neq 0$, $y, z \in { \lbrace \pm 1 \rbrace }^n$ such that:
 
 $(A_c - d D_y \Delta D_z) \cdot x = 0$
 
@@ -121,7 +121,7 @@ $D_y \cdot x' \geq 0$
 
 where $d = d(A_c, \Delta) \in [0,1]$
 
-$d(A_c, \Delta) = \min \\{ \delta \geq 0; [A_c \pm \delta \Delta] \text{ is singular} \\} = \frac{1}{\underset{y, z \in \\{\pm 1\\}^n}{\max} \rho^{\mathbb{R}} \left[ {A_c}^{-1} D_y \Delta D_z \right]}$.
+$d(A_c, \Delta) = \min \lbrace \delta \geq 0; [A_c \pm \delta \Delta] \text{ is singular} \rbrace = \frac{1}{\underset{y, z \in { \lbrace \pm 1 \rbrace }^n}{\max} \rho^{\mathbb{R}} \left[ {A_c}^{-1} D_y \Delta D_z \right]}$.
 
 ## 2 kinds of warnings might print
 
