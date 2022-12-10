@@ -36,7 +36,7 @@ def pmatrix(A):
     return (S is empty)
 ```
 
-This algorithm is based on [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11590-011-0318-y). The {\tt regising}($A_c$, $\Delta$) program considers an exhaustive list of methods to determine the {\tt REG}ular{\tt I}ty or the {\tt SING}ularity of the interval $[A_c - \Delta, A_c + \Delta]$. [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11590-011-0318-y) states that for $(A - I)$ non-singular, $A$ is a P-Matrix $\iff$ $[ (A-I)^{-1} (A + I) - I, (A-I)^{-1} (A + I) + I ]$ is regular, i.e. it does not contain any singular matrix $S$. This interval matrix takes the form $[A_c - \Delta,A_c + \Delta]$ with $A_c = (A-I)^{-1} (A + I)$ and $\Delta = I$.
+This algorithm is based on [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11590-011-0318-y). The `regising`($A_c$, $\Delta$) program considers an exhaustive list of methods to determine the **REG**ular**I**ty or the **SING**ularity of the interval $[A_c - \Delta, A_c + \Delta]$. [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11590-011-0318-y) states that for $(A - I)$ non-singular, $A$ is a P-Matrix $\iff$ $[ (A-I)^{-1} (A + I) - I, (A-I)^{-1} (A + I) + I ]$ is regular, i.e. it does not contain any singular matrix $S$. This interval matrix takes the form $[A_c - \Delta,A_c + \Delta]$ with $A_c = (A-I)^{-1} (A + I)$ and $\Delta = I$.
 
 `regising` checks the regularity/singularity of the interval matrix by returning a matrix $S$ singular, if one has been found in the interval matrix (i.e. singular interval) or a value $S = [ \ ]$ empty if no singular matrix has been found in the interval (i.e. regular interval). It investigates the following methods:
 
