@@ -42,7 +42,7 @@ This algorithm is based on [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11
 
 **Conditions for the existence of a singular matrix**
 
-- *midpoint matrix $A_c$*:
+- *midpoint matrix* $A_c$:
     the midpoint matrix $A_c$ of the interval matrix $[A_c \pm \Delta]$ is singular.
     
 - *diagonal condition* [Theorem 2.1 from Oettli and Prager](https://doi.org/10.1137/S0895479896310743):
@@ -81,5 +81,5 @@ This algorithm is based on [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11
 
 ## 2 kinds of warnings might print
 
-- Jiri Rohn uses his own code to answer the optimization problem: Max $c^T \cdot x$ subject to $A \cdot x \leq b$, which is needed during the process of checking regularity or singularity of the interval matrix of interest ($\star$), while we use `scipy.optimize.linprog(-c, A_ub=A, b_ub=b, method="simplex").x` which solves: Min $-c^T \cdot x$ subject to $A \cdot x \leq b$. However the "simplex" method in `scipy.optimize.linprog` may not converge, raising a ValueError in `regsuffcondqz`.
+- Jiri Rohn uses his own code to answer the optimization problem: Max $c^T \cdot x$ subject to $A \cdot x \leq b$, which is needed during the process of checking regularity or singularity of the interval matrix of interest $(\star)$, while we use `scipy.optimize.linprog(-c, A_ub=A, b_ub=b, method="simplex").x` which solves: Min $-c^T \cdot x$ subject to $A \cdot x \leq b$. However the "simplex" method in `scipy.optimize.linprog` may not converge, raising a ValueError in `regsuffcondqz`.
 - REGularIty/SINGularity of interval matrix program may be stopped after reaching prescribed number of iterations, raising a RuntimeError in `regising`.
