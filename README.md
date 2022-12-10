@@ -36,7 +36,7 @@ def pmatrix(A):
     return (S is empty)
 ```
 
-This algorithm is based on [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11590-011-0318-y). The `regising` ($A_c, \Delta$) program considers an exhaustive list of methods to determine the **REG**ular**I**ty or the **SING**ularity of the interval $[A_c - \Delta, A_c + \Delta]$. [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11590-011-0318-y) states that for $(A - I)$ non-singular, $A$ is a P-Matrix $\iff$ $[ (A-I)^{-1} (A + I) - I, (A-I)^{-1} (A + I) + I ]$ is regular, i.e. it does not contain any singular matrix $S$. This interval matrix takes the form $[A_c - \Delta,A_c + \Delta]$ with $A_c = (A-I)^{-1} (A + I)$ and $\Delta = I$.
+This algorithm is based on [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11590-011-0318-y). The `regising` $(A_c, \Delta)$ program considers an exhaustive list of methods to determine the **REG**ular**I**ty or the **SING**ularity of the interval $[A_c - \Delta, A_c + \Delta]$. [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11590-011-0318-y) states that for $(A - I)$ non-singular, $A$ is a P-Matrix $\iff$ $[ (A-I)^{-1} (A + I) - I, (A-I)^{-1} (A + I) + I ]$ is regular, i.e. it does not contain any singular matrix $S$. This interval matrix takes the form $[A_c - \Delta,A_c + \Delta]$ with $A_c = (A-I)^{-1} (A + I)$ and $\Delta = I$.
 
 `regising` checks the regularity/singularity of the interval matrix by returning a matrix $S$ singular, if one has been found in the interval matrix (i.e. singular interval) or a value $S = [ \ ]$ empty if no singular matrix has been found in the interval (i.e. regular interval). It investigates the following methods:
 
@@ -52,7 +52,7 @@ This algorithm is based on [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11
     investigate determinant bounds of the interval matrix (i.e. the hull of matrices determinant for matrices in the interval).
     
 - *two Qz-matrices* [Theorem 4.3](https://doi.org/10.1137/S0895479896313978):
-    the linear programming problem ($\star$) maximize $z^T x$ subject to $(A_c - \Delta \cdot diag(z)) x \leq 0$ and $diag(z) \cdot x \geq 0$, is unbounded for some $z \in \{ \pm 1 \}^n$.
+    the linear programming problem $(\star)$ maximize $z^T x$ subject to $(A_c - \Delta \cdot diag(z)) x \leq 0$ and $diag(z) \cdot x \geq 0$, is unbounded for some $z \in \{ \pm 1 \}^n$.
     
 - *main algorithm* [Theorem 2.2 - find the singular matrix](https://doi.org/10.1137/0614007):
     loop on $\{ \pm 1 \}^n$ to identify the possible singular matrix which should have the specific form.
@@ -73,7 +73,7 @@ This algorithm is based on [Jiri Rohn's theorem 2](http://dx.doi.org/10.1007/s11
     - ${A_c}^T A_c - | \Delta^T \Delta | I$ is positive definite
 
 - *two Qz-matrices* [Theorem 4.3](https://doi.org/10.1137/S0895479896313978):
-    the linear programming problem ($\star$) is bounded for all $z \in \{ \pm 1 \}^n$.  
+    the linear programming problem $(\star)$ is bounded for all $z \in \{ \pm 1 \}^n$.  
 
 - *main algorithm* [Theorem 2.2 - all matrices are non singular](https://doi.org/10.1137/0614007):
     loop on $\{ \pm 1 \}^n$ to check there is no singular matrix in the whole interval. This last track is the most expensive since in case the matrix is a P-matrix and no one of the conditions presented above succeeded to prove it, the algorithm will investigate the values of the sign real spectral radius.
