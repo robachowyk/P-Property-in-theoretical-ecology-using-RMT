@@ -13,7 +13,7 @@
 The work presented on check_p_property.ipynb illustrates the phase transition for the P-matrix property of $I - \frac{X_N}{\alpha \sqrt{N}}$ according to the value of $\alpha$. 
 
 - the matrix $I$ is the $(N \times N)$ identity matrix
-- the matrix $X_N$ is a $(N \times N)$ random matrix with centeredentries of variance 1.
+- the matrix $X_N$ is a $(N \times N)$ random matrix with centered entries of variance 1.
 - $\alpha$ is a parameter on which depend the P-property of the matrix
 
 This investigation is useful in theoretical ecology especially. To investigate the phase transition, we check the P-property of the matrix $I - \frac{X_N}{\alpha \sqrt{N}}$ for 15 values of $\alpha$ spread around the theoretical value of the phase change. 
